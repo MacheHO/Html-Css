@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <link rel="stylesheet" href="in.css">
+    <!--連結in.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <!--頭像網址-->
+    <script src="in.js" defer></script>
+    <!--連結in.js-->
+</head>
+<body>
+    <form method="post" action="###" class="login" name="myform" onsubmit="checkpost()">
+        <h1>登入</h1>
+        <i class="fa fa-user-circle-o"></i> <!--頭像-->
+        <h2>帳號</h2> <!--帳號-->
+        <input type="text" class="inlog" id="username" placeholder="請輸入帳號">
+        <h2>密碼</h2> <!--密碼-->
+        <input type="password" class="pass" id="password" name="password" placeholder="請輸入密碼">
+    
+        <!--登入按鈕-->
+    <div class="shape-ex11">
+        <p id="login" type="submit" onclick="log()">登入</p>
+    </div>
+    
+    </form>
+</body>
+</html>

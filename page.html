@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>節點電壓(v)</title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <!--匯入bootstrap-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--匯入jQuery-->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!--匯入bootstrap javascript-->
+    <link rel="stylesheet" href="style.css">
+    <!--style.css-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" defer></script>
+    <!--匯入chart.js-->
+    <script src="main.js" defer></script>
+    <!--main.js-->
+</head>
+
+<body>
+    <div class="container"> <!-- Boostrap 中提供了 container 這個布局方式 ，縮放不會跑掉-->
+        
+        <!--<script>
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var longgitude = position.coords.longitude;
+                var latitude = position.coords.latitude;
+            },Error);
+        </script>-->
+        <aside>
+        <div id="weather">
+            <script>
+                function makeRequest(){
+                    xhr = new XMLHttpRequest();
+
+                    xhr.onload = function() {
+                        //處理回傳的東西
+                        //城市：response.city.name
+                        //國家：response.city.country
+                        //天氣狀況：response.list[0].weather[0].main
+                        //氣溫：response.list[0].main.temp
+                        var response = JSON.parse(this.responseText);
+                        var city = response.city.name + ", " + response.city.country;
+                        var weatherTitle = response.list[0].weather[0].main;
+                        var temp = response.list[0].main.temp + "°";
+
+                        var weatherContainer = document.querySelector("#weather");
+                        weatherContainer.innerHTML = city + "<br/>" + weatherTitle + "<br/>" + temp;
+  }
+                    //?q=城市名,國家縮寫  ?id=城市  溫度單位-->units=華氏imperial/攝氏metric
+                    xhr.open('GET','https://api.openweathermap.org/data/2.5/forecast?q=Taipei,tw&id=524901&APPID=0a82bbd0a7aaaca8d9e4268ec505d34e&units=metric',true);
+                    xhr.send()
+                }
+                makeRequest();
+            </script>
+        </div>
+    </aside>
+    <!--上方總覽-->
+    <nav class="nav navbar-default navbar-fixed-top"><!--navbar-default 背景黑色 navbar-fixed-top 一直在上方不會動-->
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">土壤觀察</a>
+        </div>
+        <ul class="nav nav-tabs">
+            <!--加入 href="#" 可點選-->
+            <li class = "dropdown"><a class = "dropdown-toggle" data-toggle = "dropdown" href="#">節點電壓(v)<span class ="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#ch">1號裝置</a></li>
+                    <li><a href="#ch2">2號裝置</a></li>
+                    <li><a href="#ch3">3號裝置</a></li>
+                    <li><a href="#ch4">4號裝置</a></li>
+                </ul>
+            </li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page2.html'">空氣濕度(%)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page3.html'">空氣溫度(°C)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page4.html'">土壤淺層溫度(°C)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page5.html'">土壤深層溫度(°C)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page6.html'">土壤淺層濕度(%)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page7.html'">土壤深層濕度(%)</a></li>
+            <li><a href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/page8.html'">PH值</a></li>
+            <li><a data-toggle="tab" href="#" onclick="location.href='file:///Users/amy/Desktop/vs%20code/inlog.html'"><span class="glyphicon glyphicon-log-in" ></span> Log out</a></li>
+            <!--登出鈕-->
+            </div>
+        </ul>
+        </nav>
+
+        <!--日期時間-->
+        <div id="main">
+        <div id="show_time" style="">
+                <script>
+                    //這裡就可以顯示時間
+                    setInterval("fun(show_time)",1);
+                        function fun(timeID){ 
+                        var date = new Date();  //建立物件  
+                        var y = date.getFullYear();     //獲取年份  
+                        var m =date.getMonth()+1;   //獲取月份  返回0-11  
+                        var d = date.getDate(); // 獲取日  
+                        var w = date.getDay();   //獲取星期幾  返回0-6   (0=星期天) 
+                        var ww = ' 星期'+'日一二三四五六'.charAt(new Date().getDay()) ;//星期幾
+                        var h = date.getHours();  //時
+                        var minute = date.getMinutes()  //分
+                        var s = date.getSeconds(); //秒
+                        //var sss = date.getMilliseconds() ; //毫秒
+
+                        if(m<10){ //月
+                        m = "0"+m;
+                        }
+
+                        if(d<10){ //日
+                        d = "0"+d;
+                        }
+
+                        if(h<10){ //小時
+                        h = "0"+h;
+                        }
+
+                        if(minute<10){ //分鐘
+                        minute = "0"+minute;
+                        }
+
+                        if(s<10){ //秒
+                        s = "0"+s;
+                        }
+
+                        /*if(sss<10){ //毫秒
+                        sss = "00"+sss;
+                        }else if
+                        (sss<100){
+                        sss = "0"+sss;
+                        }*/ 
+
+                        document.getElementById(timeID.id).innerHTML = y+"-"+m+"-"+d+"   "+h+":"+minute+":"+s+"  "+ww;
+                        //document.getElementById(timeID.id).innerHTML =  y+"-"+m+"-"+d+"   "+h+":"+minute+":"+s+"."+sss+"  "+ww;
+                        //document.write(y+"-"+m+"-"+d+"   "+h+":"+minute+":"+s);  
+                        }
+                </script>
+            </div>
+        </div>
+
+    <!--top button--> 
+        <a class="btn-back" href="#top">↑</a>
+
+    <!--圖表-->
+    <div class="chart-container">
+        <h1 id="ch">1號裝置</h1>
+        <canvas id="Chart" width="200" height="200"></canvas>
+        <h1 id="ch2">2號裝置</h1>
+        <canvas id="Chart2" width="500" height="300"></canvas>
+        <h1 id="ch3">3號裝置</h1>
+        <canvas id="Chart3" width="300" height="300"></canvas>
+        <h1 id="ch4">4號裝置</h1>
+        <canvas id="Chart4" width="500" height="500"></canvas>
+    </div>
+</div>
+</body>
+</html>

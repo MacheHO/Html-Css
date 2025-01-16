@@ -1,0 +1,96 @@
+body{
+    width: 100%; /*寬度*/
+    height: 100%;/*高度*/
+    padding: 0;/*區塊內容的內部距離*/
+    margin: 0;/*區塊內容的外部距離*/
+    background: url(http://pic.616pic.com/bg_w1180/00/23/32/lBK4iAjeLg.jpg!/fw/1120);
+    background-size: cover;
+    background-attachment: fixed; /*背景圖是否固定 固定*/
+    background-position: center; /*背景圖位置*/
+}
+h1{  /*h1位置*/
+    position: fixed; /*設定區塊座標位置*/
+    left: 50%; /*往網頁左邊流動*/
+    top: 30%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, -50%);
+    text-align: center; /*文字對齊屬性*/
+    color: rgb(234, 236, 242);
+    font-family: "微軟正黑體", sans-serif; /*字體設定*/
+    border-radius: 10px;
+    padding: 30px; /*區塊內容的內部距離*/
+    width: 25%;
+}
+h2{  /*h2位置*/
+    position: absolute;
+    left: 50%;
+    top: 39%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, -50%);
+    text-align: center;
+    color: rgb(234, 236, 242);
+    font-family: "微軟正黑體", sans-serif;
+    border-radius: 10px;
+    padding: 30px;
+    width: 25%;
+}
+h3{  /*h3位置*/
+    position: absolute;
+    left: 50%;
+    top: 49%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, -50%);
+    text-align: center;
+    color: rgb(234, 236, 242);
+    font-family: "微軟正黑體", sans-serif;
+    border-radius: 10px;
+    padding: 30px;
+    width: 25%;
+}
+.inlog { /*輸入帳號*/
+    font-size: 16px; /*文字大小*/
+    font-family: "微軟正黑體", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin-top: 25%;
+    margin-bottom: 4%;
+    margin-left: 40%;
+    margin-right: auto;
+    display: block;
+    width: 20%;
+}
+.password{ /*輸入密碼*/
+    font-size: 16px;
+    font-family: "微軟正黑體", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    top: 60%;
+    margin-left: 40%;
+    display: block;
+    width: 20%;
+}
+.check{ /*輸入密碼*/
+    font-size: 16px;
+    font-family: "微軟正黑體", sans-serif;
+    padding: 5px ;
+    border-radius: 4px;
+    margin-left: 40%;
+    display: block;
+    width: 20%;
+}
+.newuser{ /*按鈕*/
+    border: 10;
+    padding: 4px 30px;
+    top: 60%;
+    margin-left: 47%;
+    font-size: 15px;
+    font-family: "微軟正黑體", sans-serif;
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+}
+@media (max-width:450px) {
+    .login{
+        width: 70%;
+    }
+}

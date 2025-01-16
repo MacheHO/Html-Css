@@ -1,0 +1,102 @@
+body{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: url(http://pic.616pic.com/bg_w1180/00/23/32/lBK4iAjeLg.jpg!/fw/1120);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.login{  /*整體位置*/
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, -50%);
+    text-align: center;
+    color: rgb(244, 245, 249);
+    font-family: "微軟正黑體", sans-serif;
+    border-radius: 10px;
+    padding: 30px;
+    width: 25%;
+}
+.login i{ /*頭像*/
+    font-size: 100px;
+    margin: 20px auto;
+}
+input[type="text"] { /*輸入帳號*/
+    font-size: 16px;
+    font-family: "微軟正黑體", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+input[type="password"]{ /*輸入密碼*/
+    font-size: 16px;
+    font-family: "微軟正黑體", sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+.shape-ex11{
+    border: 10;
+    padding: 5px 10px;
+    margin: 15px auto; /*高度*/
+    font-size: 18px;
+    width: 200px;
+    height: 60px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    line-height: 30px;
+    color: rgb(252, 247, 247);
+    background-color: transparent;
+    position: relative;
+    transition: all .3s linear;
+}
+.shape-ex11 > p{
+    position: relative;
+    z-index: 1;
+}
+.shape-ex11::before{
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-top: 1px solid rgb(243, 237, 237);
+    border-left: 1px solid rgb(243, 234, 234);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .3s linear;
+}
+.shape-ex11::after{
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(249, 242, 242);
+    border-right: 1px solid rgb(241, 236, 236);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: all .3s linear;
+}
+.shape-ex11:hover::before,
+.shape-ex11:hover::after{
+    width: 100%;
+    height: 100%;
+}
+@media (max-width:450px) {
+    .login{
+        width: 70%;
+    }
+}
